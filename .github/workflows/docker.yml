@@ -31,5 +31,5 @@ jobs:
           file: Dockerfile
           platforms: linux/amd64,linux/arm64
           tags: |
-            xl4times/reformat-gherkin:nightly
+            xl4times/reformat-gherkin
           push: true

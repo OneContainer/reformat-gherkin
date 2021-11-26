@@ -5,11 +5,11 @@ COPY . /root/
 WORKDIR /root/
 
 RUN pip install poetry && \
-    poetry build && \
+    poetry build -f wheel && \
     pip install --user dist/reformat_gherkin*.whl
 
 FROM python:3-slim
 
-COPY --from=builder /root/.local/bin/reformat-gherkin /usr/bin/reformat-gherkin
+COPY --from=builder /root/.local/ /root/.local/
 
-ENTRYPOINT ['reformat-gherkin']
+ENTRYPOINT ["/root/.local/bin/reformat-gherkin"]
